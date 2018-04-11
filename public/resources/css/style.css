@@ -1,0 +1,982 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-8, 13:36:52
+    Author     : Jerry
+*/
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+p {
+  line-height: 1;
+}
+*:focus {
+  outline: none;
+}
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  min-height: 100%;
+}
+.jm-landscape {
+  display: none;
+  text-align: center;
+  padding: 1.6rem;
+  font-size: 18px;
+  color: #999;
+}
+[data-dpr="2"] .jm-landscape {
+  font-size: 36px;
+}
+[data-dpr="3"] .jm-landscape {
+  font-size: 54px;
+}
+/*
+@media screen and (orientation: landscape) {
+    body{
+        background: none !important;
+        background-color: #FFF;
+        .jm-landscape{
+            display: block;
+        }
+        .jm-portrait{
+            display: none;
+        }
+    }
+}*/
+body {
+  min-height: 100%;
+  background: url('../images/bg_lg.jpg');
+  background-size: 100% auto;
+  font-family: "微软雅黑";
+}
+body.jm-body-landscape {
+  background: none !important;
+  background-color: #FFF;
+}
+body.jm-body-landscape .jm-landscape {
+  display: block;
+}
+body.jm-body-landscape .jm-portrait {
+  display: none;
+}
+body.jm-scene-park {
+  background: url('../images/bg_park.jpg') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 100%;
+}
+body.jm-scene-forest {
+  background: url('../images/bg_forest.jpg') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 100%;
+}
+body.jm-scene-beach {
+  background: url('../images/bg_beach.jpg') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 100%;
+}
+body.jm-guard-home {
+  background: url('../images/bg_index.gif') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 100%;
+}
+body.jm-guard-home .jm-home-body {
+  /*background: url(../images/anim_index.gif) no-repeat;*/
+  background-size: 100% auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 3.06666667rem;
+  text-align: center;
+  width: 7.29333333rem;
+}
+body.jm-guard-home .jm-home-body .jm-gif {
+  position: absolute;
+  left: 0;
+  width: 7.29333333rem;
+  height: 9.33333333rem;
+}
+body.jm-guard-home .jm-home-body .jm-home-text {
+  margin-top: 6.08rem;
+  width: 6.38666667rem;
+  height: 3.36rem;
+  z-index: 9;
+}
+body.jm-guard-home .jm-home-body .jm-home-join {
+  margin: 0.66666667rem auto 0;
+  width: 3.72rem;
+  height: 1.73333333rem;
+  display: block;
+  z-index: 9;
+}
+body.jm-guard-home .jm-home-body .jm-home-join img {
+  width: 100%;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+video {
+  width: 100%;
+}
+header {
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.2);
+  height: 1.38666667rem;
+  padding: 0.21333333rem 0.32rem;
+}
+header > img {
+  height: 0.96rem;
+}
+header .jm-header-logo {
+  height: 0.96rem;
+}
+header .jm-header-logo > img {
+  height: 100%;
+}
+header.jm-rank-header {
+  box-sizing: content-box;
+  text-align: center;
+  background-color: #f4960f;
+  height: 1.13333333rem;
+  line-height: 1.13333333rem;
+  border-bottom: 0.13333333rem solid #d78003;
+  font-size: 18px;
+  color: #FFF;
+  padding: 0;
+}
+[data-dpr="2"] header.jm-rank-header {
+  font-size: 36px;
+}
+[data-dpr="3"] header.jm-rank-header {
+  font-size: 54px;
+}
+header .jm-header-btns {
+  height: 0.96rem;
+  display: flex;
+  align-items: flex-end;
+  float: right;
+}
+header .jm-header-btns .jm-btn-home {
+  margin-right: 0.33333333rem;
+  width: 1.93333333rem;
+  height: 0.89333333rem;
+  background: url('../images/btn_back.png') no-repeat;
+  background-size: 100% 100%;
+}
+header .jm-header-btns .jm-btn-logout {
+  margin-right: 0.33333333rem;
+  width: 1.69333333rem;
+  height: 0.89333333rem;
+  background: url('../images/btn_logout.png') no-repeat;
+  background-size: 100% 100%;
+}
+header .jm-header-btns .jm-btn-music {
+  width: 1rem;
+  height: 0.93333333rem;
+  background: url('../images/icon_music_close.png') no-repeat;
+  background-size: 100% 100%;
+}
+header .jm-header-btns .jm-btn-music.rotation {
+  background: url('../images/icon_music.png') no-repeat;
+  background-size: 100% 100%;
+  -webkit-transform: rotate(360deg);
+  animation: rotation 3s linear infinite;
+  -moz-animation: rotation 3s linear infinite;
+  -webkit-animation: rotation 3s linear infinite;
+  -o-animation: rotation 3s linear infinite;
+}
+.jm-post {
+  width: 7.46666667rem;
+  margin: 0 auto;
+  margin-top: 0.2rem;
+}
+.jm-post.jm-post-lg {
+  width: 8.81333333rem;
+}
+.jm-post.jm-post-lg .jm-post-title {
+  background: url(../images/bg_title_lg.png) no-repeat;
+  background-size: 100% 100%;
+}
+.jm-post.jm-post-lg .jm-form {
+  width: 7.33333333rem;
+}
+.jm-post.jm-login {
+  margin-top: 0.93333333rem;
+}
+.jm-post.jm-login .jm-post-body {
+  height: 6.61333333rem;
+}
+.jm-post.jm-forget {
+  margin-top: 0.93333333rem;
+}
+.jm-post.jm-forget .jm-post-body {
+  height: 6.8rem;
+}
+.jm-post.jm-register {
+  margin-top: 0.13333333rem;
+}
+.jm-post.jm-register .jm-post-body {
+  height: 11.70666667rem;
+}
+.jm-post.jm-register .jm-post-body .jm-form {
+  padding-top: 0.46666667rem;
+}
+.jm-post .jm-post-title {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: 2.26666667rem;
+  background: url(../images/bg_title.png) no-repeat;
+  background-size: 100% 100%;
+  padding-top: 1.22666667rem;
+}
+.jm-post .jm-post-title p {
+  color: #FFF;
+  font-size: 18px;
+  text-align: center;
+}
+[data-dpr="2"] .jm-post .jm-post-title p {
+  font-size: 36px;
+}
+[data-dpr="3"] .jm-post .jm-post-title p {
+  font-size: 54px;
+}
+.jm-post .jm-post-body {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f28500;
+  border-bottom-right-radius: 0.46666667rem;
+  border-bottom-left-radius: 0.46666667rem;
+  padding: 0 0.24rem 0.26666667rem;
+}
+.jm-post .jm-post-body.jm-post-notitle {
+  margin-top: 0.37333333rem;
+  position: relative;
+  padding-top: 0.26666667rem;
+  border-radius: 0.46666667rem;
+}
+.jm-post .jm-post-body.jm-post-notitle:last-child {
+  margin-bottom: 1.73333333rem;
+}
+.jm-post .jm-post-body.jm-post-notitle .jm-post-connect {
+  position: absolute;
+  width: 6.97333333rem;
+  height: 1.66666667rem;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.jm-post .jm-post-body.jm-post-notitle .jm-post-con {
+  border-radius: 0.46666667rem;
+  padding-bottom: 0.66666667rem;
+}
+.jm-post .jm-post-body .jm-post-con {
+  background-color: #fbf1db;
+  height: 100%;
+  border-bottom-right-radius: 0.46666667rem;
+  border-bottom-left-radius: 0.46666667rem;
+}
+.jm-form {
+  width: 5.86666667rem;
+  padding-top: 0.77333333rem;
+  margin: 0 auto;
+}
+.jm-form .jm-form-group {
+  position: relative;
+  margin-bottom: 0.29333333rem;
+}
+.jm-form .jm-form-group .jm-input {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.04rem;
+  line-height: 1.5em;
+  font-size: 14px;
+  color: #333;
+  vertical-align: middle;
+  padding: 0 0.42666667rem;
+  background-color: #FFF;
+  border: 0.01333333rem solid #f8dd9d;
+  border-radius: 0.66666667rem;
+}
+[data-dpr="2"] .jm-form .jm-form-group .jm-input {
+  font-size: 28px;
+}
+[data-dpr="3"] .jm-form .jm-form-group .jm-input {
+  font-size: 42px;
+}
+.jm-form .jm-form-group .jm-input.jm-video-textarea {
+  resize: none;
+  height: 4.26666667rem;
+  border-radius: 0.33333333rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+.jm-form .jm-form-group .jm-input::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+.jm-form .jm-form-group .jm-select-arrow {
+  height: 0.18666667rem;
+  width: 0.26666667rem;
+  position: absolute;
+  right: 0.53333333rem;
+  top: 0.45333333rem;
+}
+.jm-form .jm-form-group.jm-radio-groups {
+  padding-top: 0.13333333rem;
+  height: 0.6rem;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group {
+  width: 2.26666667rem;
+  color: #684d1d;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+[data-dpr="2"] .jm-form .jm-form-group.jm-radio-groups .jm-radio-group {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-form .jm-form-group.jm-radio-groups .jm-radio-group {
+  font-size: 36px;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group:first-child {
+  margin-right: 0.74666667rem;
+  margin-left: 0.25333333rem;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group.jm-radio-active .jm-radio {
+  border-color: #71d0e0;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group.jm-radio-active .jm-radio > span {
+  background-color: #71d0e0;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group .jm-radio {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 0.21333333rem;
+  border: 0.01333333rem solid #ecdfc3;
+}
+.jm-form .jm-form-group.jm-radio-groups .jm-radio-group .jm-radio > span {
+  display: inline-block;
+  width: 0.26666667rem;
+  height: 0.26666667rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.jm-form .jm-form-group.jm-form-rcode .jm-input {
+  width: 3.24rem;
+}
+.jm-form .jm-form-group.jm-form-rcode .jm-input-addon {
+  text-align: center;
+  height: 1.04rem;
+  line-height: 1.04rem;
+  font-size: 12px;
+  color: #71d0e0;
+  box-sizing: border-box;
+  width: 2.50666667rem;
+  background-color: #FFF;
+  float: right;
+  border: 0.01333333rem solid #f8dd9d;
+  border-radius: 0.66666667rem;
+  /*padding: 0 32rem/@base;*/
+}
+[data-dpr="2"] .jm-form .jm-form-group.jm-form-rcode .jm-input-addon {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-form .jm-form-group.jm-form-rcode .jm-input-addon {
+  font-size: 36px;
+}
+.jm-form .jm-link-forget {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 0.08rem;
+  color: #684d1d;
+}
+[data-dpr="2"] .jm-form .jm-link-forget {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-form .jm-link-forget {
+  font-size: 36px;
+}
+.jm-form .jm-link-forget img {
+  width: 0.37333333rem;
+  height: 0.37333333rem;
+  margin-right: 0.13333333rem;
+}
+.jm-form .jm-form-btns {
+  margin-top: 0.8rem;
+}
+.jm-form .jm-form-btns.jm-form-btn {
+  margin-top: 0.62666667rem;
+  text-align: center;
+}
+.jm-form .jm-form-btns.jm-form-btn a {
+  float: none;
+}
+.jm-form .jm-form-btns.jm-form-btn a:last-child {
+  float: none;
+}
+.jm-form .jm-form-btns a {
+  float: left;
+  display: block;
+  height: 1.16rem;
+}
+.jm-form .jm-form-btns a:last-child {
+  float: right;
+}
+.jm-form .jm-form-btns a img {
+  height: 100%;
+}
+.hidden {
+  display: none;
+}
+.jm-upload-video {
+  padding: 0.4rem 0.45333333rem 0.8rem;
+  text-align: center;
+}
+.jm-upload-video .jm-video-btn {
+  margin: 0 auto;
+  width: 2.52rem;
+  height: 1.16rem;
+}
+.jm-upload-video .jm-video-btn img {
+  width: 100%;
+  -moz-animation: change 2s infinite;
+  -webkit-animation: change 2s infinite;
+  -o-animation: change 2s;
+}
+.jm-upload-video .jm-video-info {
+  margin-top: 0.66666667rem;
+  text-align: left;
+  font-size: 12px;
+  color: #684d1d;
+}
+[data-dpr="2"] .jm-upload-video .jm-video-info {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-upload-video .jm-video-info {
+  font-size: 36px;
+}
+.jm-upload-video .jm-video-info p {
+  line-height: 0.6rem;
+}
+.jm-video {
+  width: 100%;
+  position: relative;
+  margin-top: 0.13333333rem;
+  border-radius: 0.4rem;
+}
+.jm-video.jm-video-empty {
+  height: 1.73333333rem;
+  line-height: 1.73333333rem;
+  text-align: center;
+  background-color: #efe4cd;
+  color: #978a6f;
+  font-size: 12px;
+}
+[data-dpr="2"] .jm-video.jm-video-empty {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-video.jm-video-empty {
+  font-size: 36px;
+}
+.jm-video.jm-video-empty-myself {
+  background-color: transparent;
+  display: block;
+  text-align: center;
+}
+.jm-video.jm-video-empty-myself img {
+  width: 3.58666667rem;
+  height: 1.16rem;
+}
+.jm-video .jm-video-close {
+  position: absolute;
+  width: 0.56rem;
+  height: 0.56rem;
+  top: -0.13333333rem;
+  right: -0.13333333rem;
+}
+.jm-video .jm-video-play {
+  position: absolute;
+  width: 1.37333333rem;
+  height: 1.37333333rem;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+.jm-video .jm-video-play img {
+  width: 100%;
+}
+.jm-video .jm-video-poster {
+  width: 100%;
+  border-radius: 0.4rem;
+}
+.jm-rank {
+  width: 8.86666667rem;
+  margin: 0 auto;
+}
+.jm-rank .jm-rank-post {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.26666667rem;
+  background-color: #f28500;
+  margin-bottom: 0.18666667rem;
+  border-radius: 0.46666667rem;
+}
+.jm-rank .jm-rank-post:first-child {
+  padding-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.jm-rank .jm-rank-post:first-child .jm-rank-post-con {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.44rem 0.48rem 0.58666667rem;
+  background-color: #fbf1db;
+  border-radius: 0.46666667rem;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title p {
+  margin-bottom: 0.26666667rem;
+  font-size: 14px;
+  color: #684d1d;
+}
+[data-dpr="2"] .jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title p {
+  font-size: 28px;
+}
+[data-dpr="3"] .jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title p {
+  font-size: 42px;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number {
+  font-size: 16px;
+  margin-bottom: 0.37333333rem;
+  color: #684d1d;
+  display: flex;
+  align-items: center;
+}
+[data-dpr="2"] .jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number {
+  font-size: 32px;
+}
+[data-dpr="3"] .jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number {
+  font-size: 48px;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number > label {
+  width: 3.73333333rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number .jm-rank-number-con {
+  width: 0.54666667rem;
+  height: 0.70666667rem;
+  margin-right: 0.32rem;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number .jm-rank-number-con.with-text {
+  box-sizing: border-box;
+  padding: 0.09333333rem 0.02666667rem 0.09333333rem 0;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number .jm-rank-number-con label {
+  display: block;
+  background-color: #f4b13e;
+  border-radius: 50%;
+  width: 0.52rem;
+  height: 0.52rem;
+  text-align: center;
+  line-height: 0.52rem;
+  color: #FFF;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-title .jm-rank-number .jm-rank-number-con img {
+  width: 100%;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-body {
+  width: 100%;
+  margin-top: 0.53333333rem;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-detail {
+  position: absolute;
+  top: 0.48rem;
+  right: 0.48rem;
+  width: 2.52rem;
+  height: 1.16rem;
+}
+.jm-rank .jm-rank-post .jm-rank-post-con .jm-rank-post-detail img {
+  width: 100%;
+}
+.jm-user-info {
+  text-align: center;
+  padding: 0.26666667rem 0.53333333rem 0.4rem;
+}
+.jm-user-info .jm-user-avatar {
+  margin-bottom: -0.02666667rem;
+}
+.jm-user-info .jm-user-avatar img {
+  width: 1.10666667rem;
+  height: 1.10666667rem;
+  border-radius: 50%;
+}
+.jm-user-info .jm-user-name {
+  width: 4.22666667rem;
+  height: 0.74666667rem;
+  margin: 0 auto;
+  background: url('../images/bg_user_info.png') no-repeat;
+  background-size: 100% auto;
+  background-position: 0 bottom;
+}
+.jm-user-info .jm-user-name label {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 2.24rem;
+  height: 0.61333333rem;
+  text-align: center;
+  line-height: 0.61333333rem;
+  border-radius: 0.46666667rem;
+  background-color: #71d0e0;
+  display: block;
+  margin: 0 auto;
+  color: #FFF;
+}
+.jm-user-info .jm-user-rank {
+  height: 0.33333333rem;
+  margin-top: 0.53333333rem;
+}
+.jm-user-info .jm-user-rank .jm-user-imgtext {
+  font-size: 12px;
+  color: #684d1d;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+[data-dpr="2"] .jm-user-info .jm-user-rank .jm-user-imgtext {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-user-info .jm-user-rank .jm-user-imgtext {
+  font-size: 36px;
+}
+.jm-user-info .jm-user-rank .jm-user-imgtext:last-child {
+  float: right;
+}
+.jm-user-info .jm-user-rank .jm-user-imgtext img {
+  width: 0.33333333rem;
+  margin-right: 0.16rem;
+}
+.jm-post-padding {
+  padding: 0.48rem;
+}
+.jm-title {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  color: #FFF;
+  background: url('../images/bg_title_small.png') no-repeat;
+  background-size: 100% 100%;
+  width: 3.76rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+[data-dpr="2"] .jm-title {
+  font-size: 32px;
+}
+[data-dpr="3"] .jm-title {
+  font-size: 48px;
+}
+.jm-guard-info {
+  margin-top: 0.66666667rem;
+}
+.jm-guard-info.jm-open .jm-guard-more img {
+  transform: rotate(180deg);
+  transition: transform 1s;
+}
+.jm-guard-info.jm-open .jm-guard-story {
+  display: block;
+}
+.jm-guard-info .jm-guard-story {
+  display: none;
+}
+.jm-guard-info .jm-guard-story p {
+  line-height: 1.475;
+  font-size: 12px;
+  color: #684d1d;
+}
+[data-dpr="2"] .jm-guard-info .jm-guard-story p {
+  font-size: 24px;
+}
+[data-dpr="3"] .jm-guard-info .jm-guard-story p {
+  font-size: 36px;
+}
+.jm-guard-info .jm-guard-more {
+  margin: 0.4rem auto 0.46666667rem;
+  display: block;
+  text-align: center;
+}
+.jm-guard-info .jm-guard-more img {
+  transform: rotate(0deg);
+  transition: transform 1s;
+  width: 0.37333333rem;
+  height: 0.29333333rem;
+}
+.jm-medals {
+  margin-top: 0.42666667rem;
+  height: 5.09333333rem;
+}
+.jm-medals .jm-medal {
+  float: left;
+  margin: 0.24rem;
+  width: 1.94666667rem;
+  height: 2.05333333rem;
+}
+.jm-medals .jm-medal img {
+  width: 100%;
+}
+.jm-myself-btns {
+  padding: 0 0.42666667rem;
+  margin-top: 0.46666667rem;
+  height: 1.16rem;
+  margin-bottom: 0.4rem;
+}
+.jm-myself-btns a {
+  float: left;
+  display: block;
+  height: 1.16rem;
+}
+.jm-myself-btns a:last-child {
+  float: right;
+}
+.jm-myself-btns a img {
+  height: 100%;
+}
+.jm-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  top: 0;
+}
+.jm-layer .jm-layer-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  min-height: 100%;
+}
+.jm-layer .jm-layer-dialog {
+  position: fixed;
+  width: 8.30666667rem;
+  height: 7.26666667rem;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 2.4rem;
+}
+.jm-layer .jm-layer-dialog .jm-layer-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.56rem;
+  height: 0.56rem;
+}
+.jm-layer .jm-layer-dialog .jm-layer-close img {
+  width: 100%;
+}
+.jm-layer .jm-layer-dialog .jm-layer-body {
+  padding: 0.56rem;
+  text-align: center;
+}
+.jm-layer .jm-layer-dialog .jm-layer-body .jm-layer-medal {
+  width: 5.14666667rem;
+  height: 5.06666667rem;
+  margin: 0 auto;
+  background: url('../images/bg_medal.png') no-repeat;
+  background-size: 100% 100%;
+}
+.jm-layer .jm-layer-dialog .jm-layer-body .jm-layer-medal img {
+  width: 3.89333333rem;
+  height: 4.10666667rem;
+  margin-top: 0.64rem;
+}
+.jm-layer .jm-layer-dialog .jm-layer-body p {
+  color: #FFF;
+  font-size: 15px;
+  margin-top: 0.74666667rem;
+  line-height: 1.475;
+}
+[data-dpr="2"] .jm-layer .jm-layer-dialog .jm-layer-body p {
+  font-size: 30px;
+}
+[data-dpr="3"] .jm-layer .jm-layer-dialog .jm-layer-body p {
+  font-size: 45px;
+}
+.jm-hdjs img {
+  width: 100%;
+}
+.jm-info-btns {
+  padding: 0 0.10666667rem;
+  margin-top: 0.46666667rem;
+  height: 1.16rem;
+  margin-bottom: 0.4rem;
+}
+.jm-info-btns a {
+  float: left;
+  display: block;
+  margin: 0 0.18666667rem;
+  height: 1.16rem;
+}
+.jm-info-btns a img {
+  height: 100%;
+}
+.jm-weui-dialog:not(.weui-loading_toast) .weui-mask_transparent {
+  display: none;
+}
+.jm-weui-dialog:not(.weui-loading_toast) .weui-toast {
+  width: 4.26666667rem;
+  min-height: inherit;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.jm-weui-dialog:not(.weui-loading_toast) .weui-icon_toast {
+  display: none;
+}
+.jm-weui-dialog:not(.weui-loading_toast) .weui-toast__content {
+  padding: 0.4rem;
+  margin-bottom: 0;
+}
+.jm-weui-dialog.weui-loading_toast .weui-icon_toast {
+  margin: 0.66666667rem 0 0;
+  width: 0.93333333rem;
+  height: 0.93333333rem;
+}
+/*.jm-scene{
+    height: 100%;
+    min-height: 100%;
+    background: url(../images/bg_park.jpg) no-repeat;
+    
+}*/
+@-webkit-keyframes slideOutUp {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes change {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.jm-scene-empty .jm-garbage {
+  display: none;
+}
+.jm-garbage {
+  animation: change 2s infinite;
+  -moz-animation: change 2s infinite;
+  -webkit-animation: change 2s infinite;
+  -o-animation: change 2s;
+  z-index: 9;
+  position: absolute;
+}
+.jm-garbage.jm-garbage-apple {
+  width: 1.58666667rem;
+  height: 1.70666667rem;
+  bottom: 1.30666667rem;
+  right: 4.84rem;
+}
+.jm-garbage.jm-garbage-box {
+  width: 1.84rem;
+  height: 1.36rem;
+  bottom: 7.18666667rem;
+  right: 5.04rem;
+}
+.jm-garbage.jm-garbage-paper {
+  width: 0.86666667rem;
+  height: 0.8rem;
+  bottom: 6.74666667rem;
+  right: 2.62666667rem;
+}
+.jm-garbage.jm-garbage-cans {
+  width: 0.73333333rem;
+  height: 0.69333333rem;
+  bottom: 10.29333333rem;
+  right: 6.74666667rem;
+}
+.jm-garbage.jm-garbage-bottle {
+  width: 2.13333333rem;
+  height: 1.2rem;
+  bottom: 4.22666667rem;
+  right: 2.8rem;
+}
+.jm-garbage.jm-garbage-done {
+  width: 0;
+  height: 0;
+  bottom: 0.66666667rem;
+  right: 0.93333333rem;
+  transition: all 0.8s ease-in;
+  -moz-transition: all 0.8s ease-in;
+  -webkit-transition: all 0.8s ease-in;
+}
+.jm-garbage img {
+  width: 100%;
+}
+.jm-scene-trash {
+  display: inline-flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 2.04rem;
+  height: 2.70666667rem;
+}
+.jm-scene-trash img {
+  width: 100%;
+}
+.jm-video-layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #000;
+  z-index: 11;
+}
+.jm-video-layer video {
+  width: 100%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}

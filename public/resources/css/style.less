@@ -1,0 +1,854 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-3-8, 13:36:52
+    Author     : Jerry
+*/
+
+
+@base: 75;
+
+@radius_post: 35rem/@base;
+
+@bd_post: #f28500;
+@bg_post: #fbf1db;
+
+@c_text: #684d1d;
+
+.textSize(@font-size){
+    font-size: @font-size;
+    [data-dpr="2"] & { font-size: @font-size * 2; }
+    [data-dpr="3"] & { font-size: @font-size * 3; }
+}
+
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    line-height: 1;
+}
+
+*:focus{
+    outline: none;
+}
+
+html,body{
+    -webkit-text-size-adjust: 100%;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html{
+    min-height: 100%;
+}
+
+body{
+    min-height: 100%;
+    background: url('../images/bg_lg.jpg');
+    background-size: 100% auto;
+    font-family: "微软雅黑";
+    &.jm-scene-park{
+        background: url('../images/bg_park.jpg') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 100%;
+    }
+    &.jm-scene-forest{
+        background: url('../images/bg_forest.jpg') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 100%;
+    }
+    &.jm-scene-beach{
+        background: url('../images/bg_beach.jpg') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 100%;
+    }
+    &.jm-guard-home{
+        background: url('../images/bg_index.jpg') no-repeat;
+        background-size: 100% 100%;
+        /*background-position: 0 100%;*/
+        .jm-home-body{
+            background: url(../images/anim_index.gif) no-repeat;
+            background-size: 100% auto;
+            position: relative;
+            margin: 130rem/@base auto 0;
+            text-align: center;
+            width: 547rem/@base;
+            .jm-gif{
+                position: absolute;
+                left: 0;
+                width: 547rem/@base;
+                height: 700rem/@base;
+            }
+            .jm-home-text{
+                margin-top: 456rem/@base;
+                width: 479rem/@base;
+                height: 252rem/@base;
+                z-index: 9;
+            }
+            .jm-home-join{
+                margin: 50rem/@base auto 0;
+                width: 279rem/@base;
+                height: 130rem/@base;
+                display: block;
+                z-index: 9;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+}
+
+@-webkit-keyframes rotation{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+
+video{
+    width: 100%;
+}
+
+
+header{
+    box-sizing: border-box;
+    background: rgba(255,255,255,.2);
+    height: 104rem/@base;
+    padding: 16rem/@base 24rem/@base;
+    &>img{
+        height: 72rem/@base;
+    }
+    &.jm-rank-header{
+        box-sizing: content-box;
+        text-align: center;
+        background-color: #f4960f;
+        height: 85rem/@base;
+        line-height: 85rem/@base;
+        border-bottom: 10rem/@base solid #d78003;
+        .textSize(18px);
+        color: #FFF;
+        padding: 0;
+    }
+    .jm-header-btns{
+        height: 72rem/@base;
+        display: flex;
+        align-items: flex-end;
+        float: right;
+        .jm-btn-home{
+            margin-right: 45rem/@base;
+            width: 145rem/@base;
+            height: 67rem/@base;
+            background: url('../images/btn_back.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .jm-btn-music{
+            width: 75rem/@base;
+            height: 70rem/@base;
+            background: url('../images/icon_music_close.png') no-repeat;
+            background-size: 100% 100%;
+            &.rotation{
+                background: url('../images/icon_music.png') no-repeat;
+                background-size: 100% 100%;
+                -webkit-transform: rotate(360deg);
+                animation: rotation 3s linear infinite;
+                -moz-animation: rotation 3s linear infinite;
+                -webkit-animation: rotation 3s linear infinite;
+                -o-animation: rotation 3s linear infinite;
+            }
+        }
+    }
+}
+
+.jm-post{
+    width: 560rem/@base;
+    margin: 0 auto;
+    margin-top: 15rem/@base;
+    &.jm-post-lg{
+        width: 661rem/@base;
+        .jm-post-title{
+            background: url(../images/bg_title_lg.png) no-repeat;
+            background-size: 100% 100%;
+        }
+        .jm-form{
+            width: 550rem/@base;
+        }
+    }
+    &.jm-login{
+        margin-top: 70rem/@base;
+        .jm-post-body{
+            height: 496rem/@base;
+        }
+    }
+    &.jm-forget{
+        margin-top: 70rem/@base;
+        .jm-post-body{
+            height: 510rem/@base;
+        }
+    }
+    &.jm-register{
+        margin-top: 10rem/@base;
+        .jm-post-body{
+            height: 878rem/@base;
+            .jm-form{
+                padding-top: 35rem/@base;
+            }
+        }
+    }
+    .jm-post-title{
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        height: 170rem/@base;
+        background: url(../images/bg_title.png) no-repeat;
+        background-size: 100% 100%;
+        padding-top: 92rem/@base;
+        p{
+            color: #FFF;
+            .textSize(18px);
+            text-align: center;
+        }
+    }
+    .jm-post-body{
+        box-sizing: border-box;
+        width: 100%;
+        background-color: @bd_post;
+        border-bottom-right-radius: @radius_post;
+        border-bottom-left-radius: @radius_post;
+        padding: 0 18rem/@base 20rem/@base;
+        &.jm-post-notitle{
+            margin-top: 28rem/@base;
+            position: relative;
+            padding-top: 20rem/@base;
+            border-radius: @radius_post;
+            &:last-child{
+                margin-bottom: 130rem/@base;
+            }
+            .jm-post-connect{
+                position: absolute;
+                width: 523rem/@base;
+                height: 125rem/@base;
+                top: -75rem/@base;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            .jm-post-con{
+                border-radius: @radius_post;
+                padding-bottom: 50rem/@base;
+            }
+        }
+        .jm-post-con{
+            background-color: @bg_post;
+            height: 100%;
+            border-bottom-right-radius: @radius_post;
+            border-bottom-left-radius: @radius_post;
+        }
+    }
+}
+
+.jm-form{
+    width: 440rem/@base;
+    padding-top: 58rem/@base;
+    margin: 0 auto;
+    .jm-form-group{
+        position: relative;
+        margin-bottom: 22rem/@base;
+        .jm-input{
+            -webkit-appearance: none;
+            box-sizing: border-box;
+            width: 100%;
+            height: 78rem/@base;
+            line-height: 1.5em;
+            .textSize(14px);
+            color: #333;
+            vertical-align: middle;
+            padding: 0 32rem/@base;
+            background-color: #FFF;
+            border: 1rem/@base solid #f8dd9d;
+            border-radius: 50rem/@base;
+            &.jm-video-textarea{
+                resize: none;
+                height: 320rem/@base;
+                border-radius: 25rem/@base;
+                padding-top: 30rem/@base;
+                padding-bottom: 30rem/@base;
+            }
+            &::-webkit-input-placeholder{
+                color:#bfbfbf;
+            }
+        }
+        .jm-select-arrow{
+            height: 14rem/@base;
+            width: 20rem/@base;
+            position: absolute;
+            right: 40rem/@base;
+            top: 34rem/@base;
+        }
+        &.jm-radio-groups{
+            padding-top: 10rem/@base;
+            height: 45rem/@base;
+            .jm-radio-group{
+                width: 170rem/@base;
+                color: @c_text;
+                .textSize(12px);
+                display: flex;
+                align-items: center;
+                float: left;
+                &:first-child{
+                    margin-right: 56rem/@base;
+                    margin-left: 19rem/@base;
+                }
+                &.jm-radio-active{
+                    .jm-radio{
+                        border-color: #71d0e0;
+                        & > span{
+                            background-color: #71d0e0;
+                        }
+                    }
+                }
+                .jm-radio{
+                    box-sizing: border-box;
+                    display:inline-block;
+                    width: 45rem/@base;
+                    height: 45rem/@base;
+                    line-height: 45rem/@base;
+                    text-align: center;
+                    border-radius: 50%;
+                    margin-right: 16rem/@base;
+                    border: 1rem/@base solid #ecdfc3;
+                    & > span{
+                        display:inline-block;
+                        width: 20rem/@base;
+                        height: 20rem/@base;
+                        border-radius: 50%;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+        &.jm-form-rcode{
+            .jm-input{
+                width: 243rem/@base;
+            }
+            .jm-input-addon{
+                text-align: center;
+                height: 78rem/@base;
+                line-height: 78rem/@base;
+                .textSize(12px);
+                color: #71d0e0;
+                box-sizing: border-box;
+                width: 188rem/@base;
+                background-color: #FFF;
+                float: right;
+                border: 1rem/@base solid #f8dd9d;
+                border-radius: 50rem/@base;
+                /*padding: 0 32rem/@base;*/
+            }
+        }
+    }
+    .jm-link-forget{
+        display: flex;
+        align-items: center;
+        .textSize(12px);
+        margin-top: 6rem/@base;
+        color: @c_text;
+        img{
+            width: 28rem/@base;
+            height: 28rem/@base;
+            margin-right: 10rem/@base;
+        }
+    }
+    .jm-form-btns{
+        margin-top: 60rem/@base;
+        &.jm-form-btn{
+            margin-top: 47rem/@base;
+            text-align: center;
+            a{
+                float: none;
+                &:last-child{
+                    float: none;
+                }
+            }
+        }
+        a {
+            float: left;
+            display: block;
+            height: 87rem/@base;
+            &:last-child{
+                float: right;
+            }
+            img{
+                height: 100%;
+            }
+        }
+    }
+}
+
+
+.hidden{
+    display: none;
+}
+
+.jm-upload-video{
+    padding: 30rem/@base 34rem/@base 60rem/@base;
+    text-align: center;
+    .jm-video-btn{
+        margin: 0 auto;
+        width: 189rem/@base;
+        height: 87rem/@base;
+        img{
+            width: 100%;
+        }
+    }
+    .jm-video-info{
+        margin-top: 50rem/@base;
+        text-align: left;
+        .textSize(12px);
+        color: @c_text;
+        p{
+            line-height: 45rem/@base;
+        }
+    }
+}
+
+.jm-video{
+    width: 100%;
+    position: relative;
+    margin-top: 10rem/@base;
+    border-radius: 30rem/@base;
+    &.jm-video-empty{
+        height: 130rem/@base;
+        line-height: 130rem/@base;
+        text-align: center;
+        background-color: #efe4cd;
+        color: #978a6f;
+        .textSize(12px);
+    }
+    .jm-video-close{
+        position: absolute;
+        width: 42rem/@base;
+        height: 42rem/@base;
+        top: -10rem/@base;
+        right: -10rem/@base;
+    }
+    .jm-video-play{
+        position: absolute;
+        width: 103rem/@base;
+        height: 103rem/@base;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+    }
+    .jm-video-poster{
+        width: 100%;
+        border-radius: 30rem/@base;
+    }
+}
+
+.jm-rank{
+    width: 665rem/@base;
+    margin: 0 auto;
+    .jm-rank-post{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 20rem/@base;
+        background-color: @bd_post;
+        margin-bottom: 14rem/@base;
+        border-radius: @radius_post;
+        &:first-child{
+            padding-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            .jm-rank-post-con{
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+        .jm-rank-post-con{
+            position: relative;
+            margin: 0 auto;
+            padding: 33rem/@base 36rem/@base 44rem/@base;
+            background-color: @bg_post;
+            border-radius: @radius_post;
+            .jm-rank-post-title{
+                p{
+                    margin-bottom: 20rem/@base;
+                    .textSize(14px);
+                    color: @c_text;
+                }
+                .jm-rank-number{
+                    .textSize(16px);
+                    margin-bottom: 28rem/@base;
+                    color: @c_text;
+                    display: flex;
+                    align-items: center;
+                    .jm-rank-number-con{
+                        width: 41rem/@base;
+                        height: 53rem/@base;
+                        margin-right: 24rem/@base;
+                        &.with-text{
+                            box-sizing: border-box;
+                            padding: 7rem/@base 2rem/@base 7rem/@base 0;
+                        }
+                        label{
+                            display: block;
+                            background-color: #f4b13e;
+                            border-radius: 50%;
+                            width: 39rem/@base;
+                            height: 39rem/@base;
+                            text-align: center;
+                            line-height: 39rem/@base;
+                            color: #FFF;
+                        }
+                        img{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .jm-rank-post-body{
+                width: 100%;
+                margin-top: 40rem/@base;
+            }
+            .jm-rank-post-detail{
+                position: absolute;
+                top: 36rem/@base;
+                right: 36rem/@base;
+                width: 189rem/@base;
+                height: 87rem/@base;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.jm-user-info{
+    text-align: center;
+    padding: 20rem/@base 40rem/@base 30rem/@base;
+    .jm-user-avatar{
+        margin-bottom: -2rem/@base;
+        img{
+            width: 83rem/@base;
+            height: 83rem/@base;
+            border-radius: 50%;
+        }
+    }
+    .jm-user-name{
+        width: 317rem/@base;
+        height: 56rem/@base;
+        margin: 0 auto;
+        background: url('../images/bg_user_info.png') no-repeat;
+        background-size: 100% auto;
+        background-position: 0 bottom;
+        label{
+            width: 168rem/@base;
+            height: 46rem/@base;
+            text-align: center;
+            line-height: 46rem/@base;
+            border-radius: 35rem/@base;
+            background-color: #71d0e0;
+            display: block;
+            margin: 0 auto;
+            color: #FFF;
+        }
+    }
+    .jm-user-rank{
+        height: 25rem/@base;
+        margin-top: 40rem/@base;
+        .jm-user-imgtext{
+            .textSize(12px);
+            color: @c_text;
+            display: flex;
+            align-items: center;
+            float: left;
+            &:last-child{
+                float: right;
+            }
+            img{
+                width: 25rem/@base; 
+                margin-right: 12rem/@base;
+            }
+        }
+    }
+
+}
+
+.jm-post-padding{
+    padding: 36rem/@base;
+}
+
+.jm-title{
+    margin: 0 auto;
+    text-align: center;
+    .textSize(16px);
+    color: #FFF;
+    background: url('../images/bg_title_small.png') no-repeat;
+    background-size: 100% 100%;
+    width: 282rem/@base;
+    height: 60rem/@base;
+    line-height: 60rem/@base;
+}
+
+.jm-guard-info{
+    margin-top: 50rem/@base;
+    &.jm-open{
+        .jm-guard-more{
+            img{
+                transform:rotate(180deg);
+                transition:transform 1s;
+            }
+        }
+        .jm-guard-story{
+            display: block;
+        }
+    }
+    .jm-guard-story{
+        display: none;
+        p{
+            line-height: 1.475;
+            .textSize(12px);
+            color: @c_text;
+        }
+    }
+    .jm-guard-more{
+        margin: 30rem/@base auto 35rem/@base;
+        display: block;
+        text-align: center;
+        img{
+            transform:rotate(0deg);
+            transition:transform 1s;
+            width: 28rem/@base;
+            height: 22rem/@base;
+        }
+    }
+}
+
+.jm-medals{
+    margin-top: 32rem/@base;
+    height: 382rem/@base;
+    .jm-medal{
+        float: left;
+        margin: 18rem/@base;
+        width: 146rem/@base;
+        height: 154rem/@base;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.jm-myself-btns{
+    padding: 0 32rem/@base;
+    margin-top: 35rem/@base;
+    height: 87rem/@base;
+    margin-bottom: 30rem/@base;
+    a {
+        float: left;
+        display: block;
+        height: 87rem/@base;
+        &:last-child{
+            float: right;
+        }
+        img{
+            height: 100%;
+        }
+    }
+}
+
+.jm-layer{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    top: 0;
+    .jm-layer-bg{
+        background-color: rgba(0,0,0,.6);
+        height: 100%;
+        min-height: 100%;
+    }
+    .jm-layer-dialog{
+        position: fixed;
+        width: 623rem/@base;
+        height: 545rem/@base;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 180rem/@base;
+        .jm-layer-close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 42rem/@base;
+            height: 42rem/@base;
+            img{
+                width: 100%;
+            }
+        }
+        .jm-layer-body{
+            padding: 42rem/@base;
+            text-align: center;
+            .jm-layer-medal{
+                width: 386rem/@base;
+                height: 380rem/@base;
+                margin: 0 auto;
+                background: url('../images/bg_medal.png') no-repeat;
+                background-size: 100% 100%;
+                img{
+                    width: 292rem/@base;
+                    height: 308rem/@base;
+                    margin-top: 48rem/@base;
+                }
+            }
+            p{
+                color: #FFF;
+                .textSize(15px);
+                margin-top: 56rem/@base;
+            }
+        }
+    }
+}
+
+.jm-hdjs{
+    img{
+        width: 100%;
+    }
+}
+
+.jm-info-btns{
+    padding: 0 8rem/@base;
+    margin-top: 35rem/@base;
+    height: 87rem/@base;
+    margin-bottom: 30rem/@base;
+    a {
+        float: left;
+        display: block;
+        margin: 0 14rem/@base;
+        height: 87rem/@base;
+        img{
+            height: 100%;
+        }
+    }
+}
+
+.jm-weui-dialog{
+    .weui-mask_transparent{
+        display: none;
+    }
+    .weui-toast{
+        width: 300rem/@base;
+        min-height: inherit;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .weui-icon_toast{
+        display: none;
+    }
+    .weui-toast__content{
+        padding: 30rem/@base;
+        margin-bottom: 0;
+    }
+}
+
+/*.jm-scene{
+    height: 100%;
+    min-height: 100%;
+    background: url(../images/bg_park.jpg) no-repeat;
+    
+}*/
+
+
+@-webkit-keyframes slideOutUp {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        visibility: hidden;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+}
+
+
+@keyframes change{
+    0% {transform:scale(1);}
+    50% {transform:scale(1.2);}
+    100% {transform:scale(1);}
+}
+
+.jm-garbage{
+    animation: change 2s infinite;
+    -moz-animation: change 2s infinite;    
+    -webkit-animation: change 2s infinite;    
+    -o-animation: change 2s;
+    z-index: 9;
+    position: absolute;
+    &.jm-garbage-apple{
+        width: 119rem/@base;
+        height: 128rem/@base;
+        bottom: 98rem/@base;
+        right: 363rem/@base;
+    }
+    &.jm-garbage-box{
+        width: 138rem/@base;
+        height: 102rem/@base;
+        bottom: 539rem/@base;
+        right: 378rem/@base;
+    }
+    &.jm-garbage-paper{
+        width: 65rem/@base;
+        height: 60rem/@base;
+        bottom: 506rem/@base;
+        right: 197rem/@base;
+    }
+    &.jm-garbage-cans{
+        width: 55rem/@base;
+        height: 52rem/@base;
+        bottom: 772rem/@base;
+        right: 506rem/@base;
+    }
+    &.jm-garbage-bottle{
+        width: 160rem/@base;
+        height: 90rem/@base;
+        bottom: 317rem/@base;
+        right: 210rem/@base;
+    }
+    &.jm-garbage-done{
+        width: 0;
+        height: 0;
+        bottom: 50rem/@base;
+        right: 70rem/@base;
+        transition: all  .8s  ease-in;
+        -moz-transition: all  .8s  ease-in;
+        -webkit-transition: all  .8s  ease-in;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+.jm-scene-trash{
+    display: inline-flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 153rem/@base;
+    height: 203rem/@base;
+    img{
+        width: 100%;
+    }
+}
